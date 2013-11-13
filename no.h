@@ -13,7 +13,8 @@ private:
 
     public:
         No();
-        void setProximo (No &prox );
+        ~No();
+        void setProximo (No *prox );
         void setValor ( string s );
         No * getProximo () const;
         string getValor () const;

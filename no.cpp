@@ -1,21 +1,33 @@
 #include "no.h"
+#include <iostream>
+
+using namespace std;
 
 No::No(){
-
+    //cout << "Criado um novo nó" << endl;
+    this->proximo = NULL;
 }
 
-void No::setProximo ( No &prox ){
-    this->proximo = &prox;
+No::~No(){
+    delete this->proximo;
+}
+
+void No::setProximo ( No * prox ){
+    this->proximo = prox;
+    //cout << "setProximo( " << prox << ")" << endl;
 }
 
 void No::setValor ( string s ){
     this->valor = s;
+    //cout << "setValor( " << s << ")" << endl;
 }
 
 No * No::getProximo () const{
-    return this->proximo;
+    //cout << "getProximo( " << this->proximo << ")" << endl;
+    return (this->proximo);
 }
 
 string No::getValor () const{
-    return this->valor;
+    //cout << "getValor( " << this->valor << ")" << endl;
+    return (this->valor);
 }

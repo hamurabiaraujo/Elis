@@ -14,16 +14,10 @@ class Lista
 
     public:
         Lista();
+        ~Lista();
+        int adicionarNo ( string dado );
+        void imprimeLista ();
 };
-
-/*int adicionarNo (string dado){
-    No * n = new No;
-
-    n -> proximo = NULL;
-    inicio -> n;
-    n -> valor = dado;
-}*/
-
 
 
 #endif // LISTA_H
