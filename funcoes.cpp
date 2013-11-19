@@ -1,5 +1,7 @@
 #include <iostream>
 #include <funcoes.h>
+#include <no.h>
+#include <lista.h>
 #include <fstream>
 
 using namespace std;

@@ -1,6 +1,8 @@
 #include "lista.h"
 #include "no.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -43,4 +45,41 @@ void Lista::imprimeLista (){
         }else break;
         i++;
     }
+}
+
+void Lista::W ( /*int qtdArgumentos, */char * nome ){ // função salva os dados da lista no arquivo com nome pré-definido
+    /*string nomeInserido = "";
+    char c;
+    if (qtdArgumentos == 1){
+        cout << "Por favor, digite o nome do arquivo que deseja salvar." << endl;
+        c = getchar();
+        while ( c != 10 ){
+            nomeInserido += c;
+            c = getchar();
+        }
+        *nome = nomeInserido.data();
+    }*/
+    ofstream arq (nome); //abre o canal de saída de dados
+    No * n = (this->inicio)->getProximo();
+
+    if ( arq.is_open() ){ //testa se ocorreu algum erro na abertura do arquivo
+        for ( ; n != NULL; n = n->getProximo()){
+            arq << n->getValor() << endl;
+        }
+        arq.close();
+    }else{
+        cout << "Ocorreu um problema ao abrir o arquivo!" << endl;
+    }
+}
+
+void Lista::E ( char * nome ){
+    ifstream arq (nome); //abre o canal de entrada de dados
+    string linha;
+
+    if (arq.is_open()){ //testa se ocorreu algum erro na abertura do arquivo
+        while ( getline (arq, linha) ){
+            this->adicionarNo(linha);
+        }
+    }else
+        cout << "Ocorreu um problema ao abrir o arquivo!" << endl;
 }

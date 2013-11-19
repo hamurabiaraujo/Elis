@@ -9,25 +9,25 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
+    Lista l;
     char c;
+    string frase = "", nomeDoArquivo, nada = "";
 
-    cout << "Bem vindo ao Elis!" << endl << endl;
+    c = getchar();
 
-    H();
+    while ( c != 27 ){
+        if ( c != 10 )
+            frase += c;
+        else{
+            l.adicionarNo( frase );
+            frase.clear();
+        }
+        c = getchar();
+    }
 
-    /*char letra;
-    string frase;
-
-    cout << "Nome do arquivo: " << argv[argc][0];
-
-    do {
-        letra = getwchar();
-        frase += letra;
-    } while (letra != 27);
-
-    cout << frase << endl;
-
-    cout << "DIgitou esc@" << endl;*/
+    l.W(argv[1]);
+    l.E(argv[1]);
+    l.imprimeLista();
 
     return 0;
 }
