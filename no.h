@@ -7,9 +7,9 @@ using namespace std;
 
 class No
 {
-private:
-    No * proximo;
-    string valor;
+    private:
+        No * proximo;
+        string valor;
 
     public:
         No();
